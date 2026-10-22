@@ -1,0 +1,50 @@
+site_name: CodeVault KB
+site_description: A searchable team knowledge base for reusable Joget, CSS, JavaScript, SQL and integration code.
+site_author: CodeVault KB Team
+use_directory_urls: false
+copyright: Team code library — review licenses and confidentiality before publishing.
+nav:
+  - Home: index.md
+  - Getting Started: guides/start.md
+  - Joget DX9:
+      - Overview: joget/index.md
+      - CSS Selector Lookup: joget/selector-lookup.md
+      - Hide default page heading: joget/hide-page-heading.md
+      - Theme JavaScript UI helpers: joget/theme-javascript.md
+      - calmViolet theme: joget/calmviolet.md
+      - ECharts Studio theme: joget/echarts-studio.md
+      - Dark Green Route Panel theme: joget/dark-green-route-panel.md
+  - Add a Snippet: guides/contributing.md
+  - Snippet Template: guides/snippet-template.md
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true

@@ -1,0 +1,102 @@
+/* ECharts Studio. Theme properties paint the colours; this file covers only what they cannot:
+   card shapes, the dashboard tiles, the status word with its dot, and the help pages. */
+.ecs-hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:#1F3D31;border-radius:16px;padding:28px 32px;margin-bottom:24px}
+.ecs-hero h1{margin:0;font-size:26px;font-weight:600;color:#FFFFFF}
+.ecs-hero p{margin:6px 0 0;font-size:15px;color:#CFE2D6;max-width:620px}
+.ecs-cta{display:inline-block;background:#FFFFFF;color:#1F3D31;font-weight:600;padding:11px 22px;border-radius:999px;text-decoration:none}
+.ecs-cta:hover{background:#E9F1EC;color:#1F3D31;text-decoration:none}
+.ecs-tile{display:block;height:100%;background:#FFFFFF;border:1px solid #E3E6DF;border-radius:14px;padding:20px 22px;text-decoration:none}
+.ecs-tile:hover{border-color:#9CC0AC;text-decoration:none}
+.ecs-tile-label{display:block;font-size:13px;font-weight:600;color:#66736C}
+.ecs-tile-value{display:block;font-size:36px;line-height:1.15;font-weight:600;color:#17211C;margin:6px 0 2px}
+.ecs-tile-sub{display:block;font-size:13px;color:#66736C}
+.ecs-card{background:#FFFFFF;border:1px solid #E3E6DF;border-radius:14px;padding:20px 22px}
+.ecs-card-head h3,.ecs-card h3{margin:0 0 4px;font-size:16px;font-weight:600;color:#17211C}
+.ecs-card-head p{margin:0 0 8px;font-size:13px;color:#66736C}
+.ecs-status-pill{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:#17211C;white-space:nowrap}
+.ecs-dot{display:inline-block;width:8px;height:8px;border-radius:50%}
+.ecs-page{max-width:980px}
+.ecs-page h1{font-size:26px;font-weight:600;color:#17211C;margin:0 0 8px}
+.ecs-lead{font-size:16px;color:#66736C;margin:0 0 24px;max-width:720px}
+.ecs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:24px}
+.ecs-card ul{margin:8px 0 0;padding-left:18px}
+.ecs-card li,.ecs-card p{font-size:14px;color:#17211C;margin:0 0 6px}
+.ecs-steps{counter-reset:ecs;list-style:none;margin:0 0 24px;padding:0}
+.ecs-steps li{counter-increment:ecs;position:relative;background:#FFFFFF;border:1px solid #E3E6DF;border-radius:14px;padding:16px 20px 16px 64px;margin-bottom:10px;font-size:14px;color:#17211C}
+.ecs-steps li::before{content:counter(ecs);position:absolute;left:18px;top:14px;width:30px;height:30px;border-radius:50%;background:#E9F1EC;color:#1F3D31;font-weight:600;display:flex;align-items:center;justify-content:center}
+.ecs-details{background:#FFFFFF;border:1px solid #E3E6DF;border-radius:14px;padding:14px 20px;margin-bottom:10px}
+.ecs-details summary{font-weight:600;color:#17211C;cursor:pointer}
+.ecs-details p{margin:10px 0 0;font-size:14px;color:#17211C}
+/* Dashboard rows: the page builder puts columns in .row > .col; the gap and the narrow-screen wrap live here. */
+.ecs-row{padding:0;margin-bottom:24px}
+.ecs-row > .row{display:flex;flex-wrap:nowrap;gap:16px;margin:0}
+.ecs-row > .row > .col{min-width:0;padding-left:0;padding-right:0}
+.ecs-row > .row > .col.ecs-card{padding:20px 22px}
+@media (max-width:900px){.ecs-row > .row{flex-wrap:wrap}.ecs-row > .row > .col{flex:1 1 calc(50% - 8px)}.ecs-row > .row > .col.ecs-card{flex:1 1 100%}}
+@media (max-width:600px){.ecs-row > .row > .col{flex:1 1 100%}}
+/* Composed pages carry their own title, so the generated page heading is hidden on those three pages only. */
+body#dashboard h4.page-heading,body#about h4.page-heading,body#guide h4.page-heading,body#pasted_example h4.page-heading{display:none !important}
+/* Chart project form: labels sit above the fields and read from the left. */
+form#chart_project.label-top label.label{text-align:left}
+/* Add and edit screens carry their own title from the menu's custom header; the list keeps the generated one. */
+main:has(.ecs-form-title) h4.page-heading{display:none !important}
+.ecs-form-title{font-size:20px;font-weight:600;color:#17211C;margin:0 0 4px}
+.ecs-form-sub{font-size:14px;color:#66736C;margin:0 0 16px}
+/* Required marks belong on the fields, not on the section headings. */
+form#chart_project .form-section-title.section-mandatory span:after{content:none}
+/* The full-width Question field gets the same space above it as the rows before it. */
+form#chart_project label[for="question"]{margin-top:24px}
+/* Section headings on the gallery and help pages. A lone card in a two-up row keeps half width. */
+.ecs-group-head{margin:8px 0 12px}.ecs-group-head h2{font-size:18px;font-weight:600;color:#17211C;margin:0}.ecs-group-head p{font-size:14px;color:#66736C;margin:2px 0 0}
+.ecs-row > .row > .col.ecs-card:only-child{flex:0 0 calc(50% - 8px)}
+@media (max-width:900px){.ecs-row > .row > .col.ecs-card:only-child{flex:1 1 100%}}
+form#chart_project label[for="chartType"]{margin-top:24px}
+/* Help pages: full width, cards only, nothing bare on the page background. */
+.ecs-wide{max-width:none}
+.ecs-steps li strong{display:block;font-weight:600;color:#17211C}
+.ecs-steps li span{display:block;margin-top:4px;color:#66736C}
+.ecs-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.ecs-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ecs-shot{display:block;width:100%;height:auto;border:1px solid #E3E6DF;border-radius:10px;margin:8px 0 10px}
+.ecs-fact{background:#E9F1EC;border-radius:14px;padding:16px 22px;margin-bottom:24px;font-size:14px;color:#17211C}
+.ecs-quiet{border:1px dashed #CBD5CE;border-radius:14px;padding:16px 22px;margin:14px 0 8px}.ecs-quiet h3{font-size:14px;font-weight:600;color:#66736C;margin:0 0 4px}.ecs-quiet p{font-size:13px;color:#66736C;margin:0}
+@media (max-width:1100px){.ecs-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.ecs-grid-3,.ecs-grid-4{grid-template-columns:1fr}}
+.ecs-grid-3,.ecs-grid-4{align-items:start}
+/* Start here strip, quiet helper line, and the empty Chart projects list. */
+.ecs-step-link{display:block;text-decoration:none;color:#17211C}.ecs-step-link:hover{border-color:#9CC0AC;text-decoration:none;color:#17211C}
+.ecs-step-link strong{display:block;font-weight:600;margin:8px 0 2px}.ecs-step-link span{display:block;font-size:13px;color:#66736C}
+.ecs-step-no{display:flex !important;width:28px;height:28px;border-radius:50%;background:#E9F1EC;color:#1F3D31 !important;font-weight:600;align-items:center;justify-content:center}
+.ecs-quiet-line{display:block;font-size:12px;color:#66736C;margin-top:4px}
+.ecs-steps li{scroll-margin-top:80px}
+body#projects .dataList table tbody tr.empty td{font-size:0;padding:28px 18px;text-align:center}
+body#projects .dataList table tbody tr.empty td::after{content:"No chart projects yet. Press New chart project to make the first one, or use sample data inside it.";font-size:14px;color:#66736C}
+
+/* ---- One card system for every page (V, 2026-09-19): equal heights per row, one gap, one padding, one radius,
+        balanced breakpoints so no card is stranded, and a readable line length inside every card. ---- */
+.ecs-grid,.ecs-grid-3,.ecs-grid-4{display:grid;gap:16px;align-items:stretch;margin-bottom:24px}
+.ecs-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ecs-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1280px){.ecs-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:980px){.ecs-grid-3{grid-template-columns:1fr}}
+@media (max-width:640px){.ecs-grid-4{grid-template-columns:1fr}}
+.ecs-card,.ecs-tile,.ecs-row > .row > .col.ecs-card{border:1px solid #E3E6DF;border-radius:14px;padding:20px 22px;background:#FFFFFF;height:auto}
+.ecs-grid > .ecs-card,.ecs-grid-3 > .ecs-card,.ecs-grid-4 > .ecs-card{height:100%;box-sizing:border-box}
+.ecs-row > .row{align-items:stretch}.ecs-row > .row > .col{display:flex;flex-direction:column}.ecs-row > .row > .col > *{flex:1 1 auto}.ecs-row > .row > .col.ecs-card > *{flex:0 0 auto}
+.ecs-tile{height:100%;box-sizing:border-box}
+.ecs-card h3,.ecs-card-head h3{font-size:16px;font-weight:600;color:#17211C;margin:0 0 8px}
+.ecs-card p,.ecs-card li,.ecs-step-link span{font-size:14px;line-height:1.55;color:#17211C;margin:0 0 8px;max-width:68ch}
+.ecs-card p:last-child{margin-bottom:0}
+.ecs-lead,.ecs-fact,.ecs-quiet p,.ecs-details p,.ecs-group-head p,.ecs-steps li span,.ecs-steps li strong{max-width:75ch}
+.ecs-shot{aspect-ratio:49/40;object-fit:cover;object-position:top left}
+.ecs-row > .row > .col.ecs-card:only-child{flex:0 0 calc(50% - 8px);margin-left:auto;margin-right:auto}
+.ecs-footer-logo{height:24px !important;width:auto !important}
+/* Breakpoints follow the content width beside the 280px sidebar, so no card drops under about 280px wide. */
+@media (max-width:1500px){.ecs-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1240px){.ecs-grid-3{grid-template-columns:1fr}.ecs-row > .row{flex-wrap:wrap}.ecs-row > .row > .col{flex:1 1 calc(50% - 8px)}.ecs-row > .row > .col.ecs-card{flex:1 1 100%}}
+@media (max-width:900px){.ecs-grid-4{grid-template-columns:1fr}}
+@media (max-width:640px){.ecs-row > .row > .col{flex:1 1 100%}}
+/* Brand mark beside the app name, sized like the other factory apps. */
+#sidebar .sidebar_brand img.logo{width:32px;height:32px;object-fit:contain;border-radius:8px;background:#F7F6F2;padding:2px}
+header.navbar #header-name img.logo{width:26px !important;height:26px !important;object-fit:contain}
+#sidebar .brand-tooltip,header.navbar .brand-tooltip{display:none !important}
+.ecs-footer-logo{height:22px;width:auto;vertical-align:middle}

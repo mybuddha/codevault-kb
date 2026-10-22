@@ -1,0 +1,348 @@
+/* calmViolet, one stylesheet, global to the app. Round 8 write, 16 Sep 2026, from build/theme-dom-probe.md "Round 8 probe" a/b/c.
+   Shell colours live in the theme row keys; this file covers what they cannot.
+   Laws: never position:relative on header.navbar or #sidebar; word-break normal on cells; one accent; status colour only on status. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 1. tokens */
+:root { --ma-page:#F7F7F5; --ma-surface:#FFFFFF; --ma-tint:#EFEBFA; --ma-line:#E6E3F0; --ma-ink:#1B1830; --ma-muted:#6B6787; --ma-dark:#2E2A5A; --ma-accent:#5B3FD9; --ma-accent-press:#4A31B8; --ma-field:#F1F0F5; --ma-band:#FBFAFD; --ma-ok:#1E8E5A; --ma-warn:#C77D00; --ma-bad:#C0392B; }
+body, .dataList, .form-container, .btn, input, select, textarea, button { font-family:'Inter', sans-serif; }
+body { color:var(--ma-ink); }
+
+/* 2. shell: breadcrumb, stock page title and bell off; header white; admin fab takes the accent (#adminControl, probe c) */
+#content main > nav, .breadcrumb, h4.page-heading, li.inbox-notification { display:none !important; }
+/* Joget fixes the bar with right:30px while .main-content runs to the edge, leaving a page-coloured strip past the header;
+   and userview9.css hard-codes a translucent white bar in dark-sidebar mode, so the surface colour needs !important. */
+header.navbar { z-index:1030; box-shadow:none; background:var(--ma-surface) !important; border-bottom:1px solid var(--ma-line); right:0 !important; padding-right:20px; }
+header.navbar .header-nav a.btn { color:var(--ma-muted); }
+#welcomeMessage { color:var(--ma-muted); font-size:13px; }
+#adminControl, #adminControl:hover { background:var(--ma-accent) !important; box-shadow:none; }
+#adminBar { background:var(--ma-surface); border-top:1px solid var(--ma-line); }
+
+/* 3. sidebar: brand, pill active item, one line-icon set (masked SVG replaces the mixed Font Awesome glyphs, li order = Home, Meetings, Actions, AI activity, Guide) */
+#sidebar .brand-text { font-weight:600; font-size:17px; }
+#sidebar #category-container > li > a.menu-link { border-radius:8px; margin:2px 12px; padding:0 14px; display:flex; align-items:center; }
+#sidebar #category-container > li > a.menu-link > span { display:flex; align-items:center; gap:12px; }
+#sidebar #category-container > li.active > a.menu-link { background:var(--ma-accent) !important; color:#FFFFFF !important; }
+#sidebar #category-container > li:not(.active) > a.menu-link:hover { background:rgba(255,255,255,0.08); }
+#sidebar #category-container > li > a.menu-link i { width:18px; height:18px; margin:0; font-size:0; line-height:0; background-color:currentColor; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-size:contain; mask-size:contain; -webkit-mask-position:center; mask-position:center; }
+#sidebar #category-container > li > a.menu-link i::before { content:none; }
+#sidebar #category-container > li:nth-child(1) > a i { -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z'/></svg>"); mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z'/></svg>"); }
+#sidebar #category-container > li:nth-child(2) > a i { -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='5' width='18' height='16' rx='2'/><path d='M16 3v4M8 3v4M3 11h18'/></svg>"); mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='5' width='18' height='16' rx='2'/><path d='M16 3v4M8 3v4M3 11h18'/></svg>"); }
+#sidebar #category-container > li:nth-child(3) > a i { -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='m8 12 3 3 5-6'/></svg>"); mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='m8 12 3 3 5-6'/></svg>"); }
+#sidebar #category-container > li:nth-child(4) > a i { -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z'/><path d='m5 17 .7 1.8 1.8.7-1.8.7L5 22l-.7-1.8-1.8-.7 1.8-.7z'/></svg>"); mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z'/><path d='m5 17 .7 1.8 1.8.7-1.8.7L5 22l-.7-1.8-1.8-.7 1.8-.7z'/></svg>"); }
+#sidebar #category-container > li:nth-child(5) > a i { -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='9'/><path d='M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1 1-1.1 1.8M12 17h.01'/></svg>"); mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='9'/><path d='M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1 1-1.1 1.8M12 17h.01'/></svg>"); }
+
+/* 4. buttons and links: one accent, one filled primary; secondaries are ghosts */
+a, a:not(:hover) { color:var(--ma-accent); }
+#content main .btn:not(.btn-secondary):not(.btn-light):not(.grid-action-add), #content main input[type=submit].form-button:not(.btn-secondary), .ma-primary, .btn-primary { background:var(--ma-accent) !important; border-color:var(--ma-accent) !important; color:#FFFFFF !important; border-radius:8px; font-weight:600; box-shadow:none; }
+#content main .btn:not(.btn-secondary):not(.grid-action-add):hover, #content main input[type=submit].form-button:hover { background:var(--ma-accent-press) !important; border-color:var(--ma-accent-press) !important; }
+.ma-ghost, #content main .btn-secondary, #content main button.form-button.btn-secondary, #content main .btn.grid-action-add, .ma-draft-btn, .ma-draft-add { background:var(--ma-surface) !important; color:var(--ma-accent) !important; border:1px solid var(--ma-line) !important; border-radius:8px !important; box-shadow:none; font-weight:500; padding:0 16px; min-height:40px; line-height:38px; font-size:14px; cursor:pointer; opacity:1 !important; }
+.ma-ghost:hover, #content main .btn-secondary:hover, #content main .btn.grid-action-add:hover, .ma-draft-btn:hover, .ma-draft-add:hover { border-color:var(--ma-accent) !important; background:var(--ma-tint) !important; }
+.badge, .label-success, .label-info, .text-success, .text-info { color:inherit; }
+
+/* 5. lists: hairline rows, light header band, two-line first cell, no Edit column (titles are the links), no Print, pills for filters */
+.dataList table, .dataList table.xrounded_shadowed { border:0; box-shadow:none; border-radius:12px; overflow:hidden; }
+.dataList table thead th { background:var(--ma-band); color:var(--ma-muted); font-weight:500; font-size:13px; border:0; border-bottom:1px solid var(--ma-line); padding:14px 16px; }
+.dataList table thead th a { color:var(--ma-muted); }
+.dataList table tbody td { border:0; border-top:0; border-bottom:1px solid var(--ma-line); padding:12px 16px; word-break:normal; overflow-wrap:break-word; vertical-align:middle; font-size:14px; }
+.dataList table tbody tr { border:0; }
+.dataList table tbody tr:last-child td { border-bottom:0; }
+.dataList table tbody tr:hover td { background:var(--ma-band); }
+.dataList th.row_action, .dataList td.row_action, .CRUD_Menu > a.print-button { display:none !important; }
+.dataList td.body_column_0 a { text-decoration:none; }
+.ma-cell-title { display:block; color:var(--ma-accent); font-weight:500; line-height:1.35; }
+.ma-cell-sub { display:block; color:var(--ma-muted); font-weight:400; font-size:13px; line-height:1.35; margin-top:2px; }
+.dataList td.body_column_0 a:hover .ma-cell-title { text-decoration:underline; }
+.dataList .filters { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:0 0 12px 0; margin:0; text-align:left; }
+.dataList .filters .filter-cell:has(> select[id$="-ps"]) { display:none; }
+.dataList .filters select, .dataList .filters input[type=text] { min-height:36px; border-radius:999px; border:1px solid var(--ma-line); background:var(--ma-surface); padding:6px 14px; color:var(--ma-ink); font-size:13px; }
+.dataList .filters select:not(.emptyValue) { background:var(--ma-tint); border-color:var(--ma-tint); color:var(--ma-accent) !important; font-weight:600; }
+.dataList .filters input[type=submit] { min-height:36px; border-radius:999px !important; padding:0 16px; }
+.dataList .actions.top { margin-bottom:8px; }
+.dataList .pagebanner, .dataList .exportlinks, .dataList .pg-navigator { color:var(--ma-muted); font-size:13px; }
+.dataList .pagelinks a, .dataList .pagelinks strong, .dataList .pagelinks span.pc { border-radius:8px; }
+.dataList .pagelinks strong { background:var(--ma-accent); color:#FFFFFF; }
+
+/* 6. status word with a dot; the only place a status colour appears */
+.ma-status { display:inline-flex; align-items:center; gap:7px; white-space:nowrap; color:var(--ma-ink) !important; font-weight:500; }
+.ma-status::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--ma-muted); flex:0 0 8px; }
+.ma-status-done::before { background:var(--ma-ok); }
+.ma-status-due_soon::before { background:var(--ma-warn); }
+.ma-status-overdue::before { background:var(--ma-bad); }
+.ma-status-open::before { background:var(--ma-muted); }
+
+/* 7. forms: white section cards, question titles without the asterisk, labels above, 44px grey fields */
+.form-container .form-section { border:1px solid var(--ma-line); border-radius:12px; background:var(--ma-surface); margin-bottom:16px; }
+.form-container .form-section-title { font-size:17px; font-weight:600; color:var(--ma-ink); border-bottom:0; background:var(--ma-surface); padding:20px 20px 0 20px; }
+.form-container .form-section-title span::after, .form-container .form-section-title.section-mandatory span::after { content:none !important; }
+.form-container .form-cell-validator { display:none !important; }
+.form-container .section-content { display:flex; flex-wrap:wrap; gap:0; padding:4px 10px 12px 10px; }
+/* Round 8e: Joget prints each Column as style="width: N%" (probe 8e); the column keeps that width as its flex-basis, 100% breaks the line, the 20px gutter is inner padding so percentages add up */
+.form-container .form-column { float:none !important; flex:0 0 auto; min-width:0; padding:0 10px; box-sizing:border-box; }
+.form-container .form-column:not([style*="%"]) { flex:1 1 auto; width:100%; }
+.form-container .form-cell { padding:10px 0; width:100%; }
+.form-container .form-cell > label.label { display:block; float:none; width:100% !important; max-width:100% !important; min-width:0; padding:0 0 6px 0; margin:0; font-size:13px; font-weight:500; color:var(--ma-muted); text-align:left; white-space:normal; }
+.form-container .form-cell input[type=text], .form-container .form-cell input[type=password], .form-container .form-cell input[type=number], .form-container .form-cell input[type=email], .form-container .form-cell select, .form-container .form-cell textarea, .form-container .form-cell .datepicker-wrapper, .form-container .form-cell .datepicker-wrapper input, .form-container .form-cell .form-cell-value, .form-container .form-cell .form-fileupload { float:none !important; display:block; width:100% !important; max-width:100%; box-sizing:border-box; }
+.form-container .form-cell input[type=text], .form-container .form-cell input[type=password], .form-container .form-cell input[type=number], .form-container .form-cell input[type=email], .form-container .form-cell select, .form-container .form-cell textarea, .form-container .form-cell .datepicker-wrapper input { background:var(--ma-surface) !important; border:1px solid var(--ma-accent) !important; border-radius:8px !important; min-height:44px; padding:10px 14px; color:var(--ma-ink); font-size:14px; }
+.form-container .form-cell input:focus, .form-container .form-cell select:focus, .form-container .form-cell textarea:focus { background:var(--ma-surface) !important; border-color:var(--ma-accent) !important; outline:0 !important; box-shadow:0 0 0 3px rgba(91,63,217,0.25) !important; }
+.form-container .form-cell .form-fileupload { border:1px dashed var(--ma-line) !important; border-radius:8px; background:var(--ma-surface); min-height:44px; }
+.form-container .form-fileupload .dz-message { color:var(--ma-muted); font-size:13px; }
+.form-container .datepicker-wrapper a.close-icon { right:14px; }
+/* inline rows: the ma-inline-row marker cell is hidden; the cell after it becomes label-left */
+.form-cell.customHtml.row_attendees, .form-cell.customHtml.row_ai_summary, .form-cell.customHtml.grid_mark { display:none !important; }
+.form-cell.row_attendees + .form-cell, .form-cell.row_ai_summary + .form-cell { display:flex; align-items:flex-start; gap:16px; padding:6px 0; }
+.form-cell.row_attendees + .form-cell > label.label, .form-cell.row_ai_summary + .form-cell > label.label { flex:0 0 104px; width:104px !important; padding:10px 0 0 0; }
+.form-cell.row_attendees + .form-cell > .chosen-container { flex:1 1 auto; width:auto !important; }
+.form-cell.row_ai_summary + .form-cell > textarea#ai_summary { flex:1 1 auto; width:auto !important; }
+/* field hints (h_<field> Custom HTML cells, Round 19): quiet caption tucked under the field, no cell padding so the
+   column keeps the field's height; the attendees hint starts under the chips, past the 104px label and 16px gap */
+.form-cell.customHtml[class*=" h_"] { padding:0 0 4px !important; margin:-6px 0 0 !important; min-height:0; height:auto; }
+.form-cell.customHtml[class*=" h_"] .ma-hint, .form-cell .ma-hint { margin:0; font-size:13px; line-height:18px; color:var(--ma-muted); }
+.form-cell.customHtml.h_attendees { padding-left:120px !important; margin-top:-10px !important; }
+.form-container .chosen-container-multi .chosen-choices { box-shadow:none; padding:0; min-height:40px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.form-container .chosen-container-multi .chosen-choices li.search-choice { background:var(--ma-field) !important; color:var(--ma-ink); border:0 !important; border-radius:8px; padding:9px 30px 9px 14px; margin:0; font-size:14px; line-height:1.3; box-shadow:none; }
+.form-container .chosen-container-multi .chosen-choices li.search-choice .search-choice-close { top:11px; right:10px; }
+.form-container .chosen-container-multi .chosen-choices li.search-field input[type=text] { min-height:40px !important; margin:0; background:transparent !important; border:0 !important; }
+.form-container .form-cell textarea#ai_summary, .form-container .form-cell textarea[readonly] { background:var(--ma-tint) !important; border-color:var(--ma-tint) !important; min-height:64px; resize:none; }
+.form-container .form-cell textarea#notes { min-height:176px; }
+
+/* 8. draft button and draft card (section s_notes, probe b) */
+#s_notes .section-content > .form-column { position:relative; }
+#s_notes .form-cell.customHtml.draft_btn { position:absolute; top:10px; right:10px; width:auto; padding:0; margin:0; z-index:2; }
+#s_notes .form-cell.customHtml.draft_btn .form-cell-value { width:auto !important; min-height:0; padding:0; }
+.ma-draft-btn-row { text-align:right; }
+.ma-draft-btn { border-color:var(--ma-accent) !important; }
+#s_notes .form-cell textarea#notes { width:calc(100% - 300px) !important; }
+.draft_card .form-cell-value { display:block !important; width:100% !important; padding:0; }
+.ma-draft-card { width:100%; background:var(--ma-surface); border:1px solid var(--ma-line); border-radius:12px; padding:20px; box-sizing:border-box; }
+.ma-draft-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.ma-draft-title { font-size:16px; font-weight:600; color:var(--ma-ink); }
+.ma-draft-copy { font-weight:500; text-decoration:none; }
+.ma-draft-meta { display:flex; align-items:center; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+.ma-draft-count { font-size:28px; font-weight:700; color:var(--ma-ink); line-height:1; }
+.ma-draft-count-label { font-size:15px; color:var(--ma-ink); }
+.ma-draft-caption { color:var(--ma-muted); font-size:13px; line-height:1.4; margin-left:auto; max-width:60%; text-align:left; }
+.ma-draft-table { width:100% !important; border-collapse:collapse; }
+.ma-draft-table th { background:var(--ma-band); color:var(--ma-muted); font-weight:500; font-size:13px; text-align:left; padding:10px 12px; border-bottom:1px solid var(--ma-line); }
+.ma-draft-table td { padding:10px 12px; border-bottom:1px solid var(--ma-line); font-size:14px; }
+.ma-draft-table th:first-child, .ma-draft-table td:first-child { width:40px; text-align:center; }
+.ma-draft-table input[type=checkbox], .formgrid input[type=checkbox] { accent-color:var(--ma-accent); width:16px; height:16px; }
+/* queued draft rows: still tickable (untick = leave out), shown quiet so the eye goes to the unqueued ones */
+.ma-draft-table tr.ma-draft-added td { color:var(--ma-muted); background:var(--ma-band); }
+.ma-draft-foot { display:flex; justify-content:flex-end; padding-top:14px; }
+
+/* 9. form grid (s_actions): no label, no row numbers, no checkbox column, icons on hover, "+ Add" as a ghost */
+#s_actions .full_width_field > div > label.label { display:none; }
+#s_actions .form-cell.full_width_field { padding-top:0; }
+.formgrid table.tablesaw { border-collapse:collapse; width:100%; }
+.formgrid table.tablesaw th { background:var(--ma-band); color:var(--ma-muted); font-weight:500; font-size:13px; border:0; border-bottom:1px solid var(--ma-line); padding:10px 12px; text-align:left; }
+.formgrid table.tablesaw td { border:0; border-bottom:1px solid var(--ma-line); padding:10px 12px; word-break:normal; overflow-wrap:break-word; font-size:14px; vertical-align:middle; }
+.formgrid table.tablesaw th:nth-child(1), .formgrid table.tablesaw th:nth-child(2), .formgrid table.tablesaw td:nth-child(1), .formgrid table.tablesaw td:nth-child(2) { display:none !important; }
+.formgrid table.tablesaw th.grid-action-header { width:64px; }
+.formgrid table.tablesaw td:last-child { opacity:0; transition:opacity .12s; }
+.formgrid table.tablesaw tbody tr:hover td:last-child { opacity:1; }
+.formgrid table.tablesaw td:last-child a { color:var(--ma-muted); margin-right:8px; }
+.formgrid .pg-navigator { color:var(--ma-muted); font-size:13px; }
+.formgrid .grid-action-add { margin-top:6px; height:40px !important; }
+
+/* 10. form footer: Save is the full-width primary, Back a ghost beside it (#section-actions, probe a) */
+#section-actions { border:0; background:transparent; box-shadow:none; margin-bottom:0; }
+#section-actions .section-content { padding:8px 0 24px 0; }
+#section-actions .form-column-horizontal { display:flex !important; flex-direction:row; gap:10px; width:100%; flex:0 0 100%; }
+#section-actions .form-cell { display:flex; padding:0; width:auto; }
+#section-actions .form-cell:first-child { flex:1 1 auto; }
+#section-actions .form-cell > input[type=submit].form-button { width:100%; min-height:44px; padding:0 22px; }
+#section-actions .form-cell > button#cancel { min-height:44px; height:44px; padding:0 22px; }
+
+/* 11. home (page markup carries its own layout style; the theme owns tiles and the primary only) */
+.tile-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
+.tile-row .ma-tile { color:var(--ma-ink); text-decoration:none; }
+.tile-row .ma-tile:hover strong { color:var(--ma-accent); }
+
+/* 12. under 1280 Joget hides #sidebar (base.min.css @max-width 1279): the same markup becomes the top pill nav; the hamburger drawer still works when toggled */
+@media (max-width: 1279px) {
+  body:not(.sidebar-toggled) #sidebar { display:block !important; top:64px; left:0; right:0; bottom:auto; width:100% !important; height:auto; background:var(--ma-surface); border-bottom:1px solid var(--ma-line); overflow:visible; z-index:1100; }
+  body:not(.sidebar-toggled) #sidebar .sidebar_brand, body:not(.sidebar-toggled) #sidebar .mCSB_scrollTools, body:not(.sidebar-toggled) #sidebar #category-container > li > a.menu-link i { display:none !important; }
+  body:not(.sidebar-toggled) #navigation, body:not(.sidebar-toggled) #navigation .mCustomScrollBox, body:not(.sidebar-toggled) #navigation .mCSB_container { position:static !important; height:auto !important; max-height:none !important; width:100% !important; margin:0 !important; overflow:visible !important; }
+  body:not(.sidebar-toggled) #category-container { display:flex; flex-direction:row; gap:4px; margin:8px 12px; padding:4px; background:var(--ma-page); border:1px solid var(--ma-line); border-radius:999px; overflow-x:auto; }
+  body:not(.sidebar-toggled) #category-container > li { flex:1 0 auto; height:auto; }
+  body:not(.sidebar-toggled) #category-container > li > a.menu-link { margin:0; height:36px; line-height:36px; padding:0 12px; border-radius:999px; justify-content:center; color:var(--ma-ink) !important; background:transparent !important; font-weight:500; white-space:nowrap; }
+  body:not(.sidebar-toggled) #category-container > li.active > a.menu-link { background:var(--ma-tint) !important; color:var(--ma-accent) !important; }
+  #sidebar-trigger { display:none !important; }
+  #content.page_content { padding-top:calc(64px + 60px + 8px) !important; }
+}
+
+/* 13. under 900: single-column sections, no flex-basis height (the 280px column basis became a 280px row height at 390, probe a), cards for lists, filters in flow */
+@media (max-width: 900px) {
+  #content main { padding-left:4px; padding-right:4px; }
+  .form-container .section-content { flex-direction:column; gap:0; padding:4px 16px 12px 16px; }
+  .form-container .form-column { flex:0 0 auto !important; width:100% !important; }
+  #s_notes .form-cell textarea#notes { width:100% !important; }
+  #s_notes .form-cell.customHtml.draft_btn { position:static; width:100%; padding:6px 0 0 0; }
+  .ma-draft-btn-row { text-align:left; }
+  .ma-draft-caption { margin-left:0; max-width:100%; }
+  .ma-draft-card { padding:16px; }
+  .tile-row { grid-template-columns:1fr 1fr !important; gap:12px; }
+  .tile-row .ma-tile { border:1px solid var(--ma-line); border-radius:12px; padding:14px 16px; background:var(--ma-surface); }
+  .dataList .filter_form a.mobile_search_trigger { display:none !important; }
+  .filter_form:not(.popup) .filters, .dataList .filters { position:static !important; height:auto !important; width:100% !important; right:auto !important; top:auto !important; background:transparent !important; border:0 !important; padding:0 0 12px 0 !important; display:flex !important; flex-wrap:wrap; flex-direction:row; gap:8px; overflow:visible !important; box-shadow:none !important; }
+  .dataList .filters .filter-cell { width:auto !important; flex:1 1 45%; display:flex; }
+  .dataList .filters .filter-cell > select, .dataList .filters .filter-cell > div, .dataList .filters .filter-cell input { width:100% !important; }
+  .dataList .filters .mobile_label, .dataList .filters .dateRangeSeparator { display:none !important; }
+  /* card layout Joget emits at narrow widths: tr > div.column_wrapper > td(label.cell-label + div.cell-value) */
+  .dataList table.cardLayout > thead { display:none !important; }
+  .dataList table.cardLayout > tbody > tr { display:block; background:var(--ma-surface); border:1px solid var(--ma-line) !important; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .dataList table.cardLayout .column_wrapper { display:block; width:100%; }
+  .dataList table.cardLayout td { display:block; width:100% !important; border:0 !important; padding:2px 0 !important; }
+  .dataList table.cardLayout td label.cell-label { display:none !important; }
+  .dataList table.cardLayout td .cell-value { display:block; width:100% !important; }
+  .dataList table.cardLayout td:has(> .column-hidden), .dataList table.cardLayout td.row_action { display:none !important; }
+  .dataList table.cardLayout td .ma-cell-title { font-size:15px; }
+  .dataList table.cardLayout td .column_status { padding-top:4px; }
+  /* form grid in tablesaw stack mode: rows as labelled cards */
+  .formgrid table.tablesaw-stack thead { display:none; }
+  .formgrid table.tablesaw-stack tbody tr { display:block; border:1px solid var(--ma-line); border-radius:12px; padding:10px 14px; margin-bottom:10px; }
+  .formgrid table.tablesaw-stack tbody td { display:flex; gap:8px; align-items:baseline; border:0; padding:4px 0; }
+  .formgrid table.tablesaw-stack tbody td:last-child { opacity:1; }
+  .formgrid table.tablesaw-stack tbody td b.tablesaw-cell-label { flex:0 0 72px; color:var(--ma-muted); font-weight:500; font-size:12px; }
+}
+
+/* 14. under 600: inline rows stack, Save sticky and full width, home primary fixed at the bottom */
+@media (max-width: 600px) {
+  .form-cell.row_attendees + .form-cell, .form-cell.row_ai_summary + .form-cell { flex-direction:column; gap:6px; }
+  .form-cell.row_attendees + .form-cell > label.label, .form-cell.row_ai_summary + .form-cell > label.label { flex:0 0 auto; width:100% !important; padding:0 0 6px 0; }
+  .form-cell.row_attendees + .form-cell > .chosen-container, .form-cell.row_ai_summary + .form-cell > textarea#ai_summary { width:100% !important; }
+  #section-actions .section-content { position:sticky; bottom:0; background:var(--ma-page); padding:10px 0 12px 0; z-index:5; }
+  #section-actions .form-column-horizontal { flex-direction:column; gap:8px; }
+  #section-actions .form-cell, #section-actions .form-cell > button#cancel { width:100%; }
+  .ma-hero { flex-direction:column; }
+  .ma-hero .ma-primary { position:fixed; left:16px; right:16px; bottom:16px; width:auto; z-index:1050; text-align:center; height:48px; line-height:48px; }
+  .ma-home { padding-bottom:72px; }
+}
+
+/* 15. second write, 16 Sep: from theme-home-390.png and theme-meeting-edit-390.png. Joget's .nav-stacked keeps the pill nav vertical; Home's hidden filters were forced visible by rule 13; the fab covered the fixed primary; the card list kept a grey band. */
+@media (max-width: 1279px) {
+  body:not(.sidebar-toggled) #category-container { flex-direction:row !important; flex-wrap:nowrap !important; align-items:center; height:auto !important; }
+  body:not(.sidebar-toggled) #category-container > li { display:block !important; float:none !important; width:auto !important; }
+  #content.page_content { padding-top:calc(64px + 56px + 8px) !important; }
+}
+@media (max-width: 900px) {
+  .dataList .filters .filter-cell { display:revert; }
+  #dataList_needsYouList .filter_form { display:none !important; }
+  .dataList table.cardLayout, .dataList table.cardLayout > tbody { background:transparent !important; border-radius:0; box-shadow:none; }
+}
+@media (max-width: 600px) {
+  #adminControl { bottom:76px !important; }
+}
+
+/* 16. Round 8b (phone), from "Round 8b probe": nav padding-bottom 80px and li grow came from Joget; thead flex from datalist-mobile.css at higher specificity; icon absolute from Joget's span > i rule; page-size cell re-shown by rule 15. */
+#sidebar .nav > li > a > span:not(.badge) { padding-left:0 !important; }
+#sidebar .nav > li > a > span > i:first-child { position:static !important; width:18px !important; height:18px !important; line-height:0 !important; }
+@media (max-width: 1279px) {
+  body:not(.sidebar-toggled) #sidebar #category-container { padding:4px !important; height:44px !important; border-radius:12px; overflow-x:auto; overflow-y:hidden; scrollbar-width:none; }
+  body:not(.sidebar-toggled) #category-container > li { flex:0 0 auto !important; }
+  body:not(.sidebar-toggled) #category-container > li > a.menu-link { height:34px; line-height:34px; padding:0 14px; font-size:14px; }
+  #content.page_content { padding-top:calc(64px + 60px + 12px) !important; }
+}
+@media (max-width: 900px) {
+  .dataList.size_sm > form > .table-wrapper > table.responsivetable > thead { display:none !important; }
+  .dataList .filters .filter-cell:has(> select[id$="-ps"]) { display:none !important; }
+  .dataList .exportlinks, .dataList .pagelinks [class*="-disabled"] { display:none !important; }
+  .dataList .pagebanner { width:100% !important; text-align:left !important; }
+}
+@media (max-width: 600px) {
+  /* the primary lives inside the hero, so sticky-at-bottom is not reachable from there; it becomes a full-width in-flow button under the greeting, never over content */
+  .ma-hero .ma-primary { position:static; width:100%; display:block; margin-top:8px; }
+  .ma-home { padding-bottom:0; }
+  #adminControl { bottom:16px !important; }
+}
+
+/* 17. Round 8c, from "Round 8c probe": chosen dropdown (.chosen-drop inside the field container, blue rgb(0,117,255) highlight), brand logo as a 947-byte data URI (56px PNG from icon/logo-mark-white.png), Home order, key guide, grid icon cell (the last td is a hidden jsonrow textarea; the icon cell is the one holding a.grid-action-edit). */
+.form-container .chosen-container .chosen-drop { background:var(--ma-surface); border:1px solid var(--ma-line) !important; border-radius:10px; box-shadow:0 8px 24px rgba(27,24,48,0.08); margin-top:4px; padding:6px; width:100%; left:0; }
+.form-container .chosen-container .chosen-results { margin:0; padding:0; color:var(--ma-ink); max-height:240px; }
+.form-container .chosen-container .chosen-results li { padding:9px 12px; border-radius:8px; line-height:1.3; font-size:14px; color:var(--ma-ink); background:transparent; }
+.form-container .chosen-container .chosen-results li.highlighted, .form-container .chosen-container .chosen-results li.active-result:hover { background:var(--ma-tint) !important; color:var(--ma-ink) !important; background-image:none !important; }
+.form-container .chosen-container .chosen-results li.result-selected { color:var(--ma-accent); font-weight:500; background:transparent; }
+.form-container .chosen-container .chosen-results li.result-selected::after { content:"\2713"; float:right; }
+.form-container .chosen-container .chosen-results li.no-results { color:var(--ma-muted); background:transparent; }
+.form-container .chosen-container-single .chosen-single { background:var(--ma-surface) !important; border:1px solid var(--ma-accent) !important; border-radius:8px !important; height:44px; line-height:42px; padding:0 14px; box-shadow:none; color:var(--ma-ink); }
+.form-container .chosen-container-single .chosen-single div b { background-position-y:8px; }
+.form-container .chosen-container-active .chosen-single, .form-container .chosen-container-active .chosen-choices, .form-container .chosen-choices:focus-within { box-shadow:0 0 0 3px rgba(91,63,217,0.15) !important; border-radius:8px; }
+.form-container .chosen-container .chosen-search input[type=text] { border:1px solid var(--ma-line) !important; border-radius:8px !important; background:var(--ma-surface) !important; min-height:36px; padding:6px 10px; }
+#sidebar .sidebar_brand a#header-link::before { content:""; display:inline-block; width:28px; height:28px; margin-right:10px; flex:0 0 28px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAxCAYAAACPiWrWAAADeklEQVR42t2aS0hUURjHvzNhZvbAzEiToqzAMiJa6KaHBBERLZKoRRBRQUG0q6BFJlGtahMtk3DVRojalFFQ0JO0x0Kj0BIf0SIpzUyZ/LU5Nw7T3McZ78zc2x+GGebc8/if7zvf61yRiABQcRgzLwsAFgErgBnyPwFYDrQCX4FRoAPYEQnp2UgUUKltQDnQxb8YB7ZGSh39djtdO3BOE/oNTBofgDvANBGRRK4IKqXIpM2jvc5pFhFEZFJ/i4isFpHinBLMgpT7nCaDqPPMgIiMRdp6ms+4nMGNwE9DTZPGOdwfaUMTdGHAXqDXIDYEnAL+aqbKBwG/M+fSb72IbNFrvqeU6tD/LxCRWhGZLiKvlFI9kY0IXKxlAjgP/DIkNQacybkKZincOoQ7GiJHyvKMFQAvPAje8BsjEQY5G5JKKVLPoEf/AhEp9RiuxIqgrTScxToLzkSa6Ry5Mc6YiLR7DPE0ayY6h+e6BhhIo54vgbI4ZgizgJXAYsefAdVAC9ANvAOuAAvjRiwBHAE6deozBNwHNqeQnxn5RNdlURddLOUwsCnuvu64keqYcP575KQ/Ga81X2IFdqZEKW5SXBpHg1Kryw1+GAdWxY3cMuADwfAJmB0ncvOA5wRHU9gLKNEVq9IslPgKdSUsKB6EJj1gPnBZq8QI0AdcD/OAaycdFJ1AeVgTlwJPXCbqAmpCmOOEB5lUNzEIrA1TLS/57OZ7oGoK4+8BJgJKbhTYNpUAPl389zHAxG8zUVdgA/A9jcQm00guCRwI26gs0c40CNptAl1trHp9VNIk2pQNs12sVTAoHgdJVYAyvSF+cMhdMytiYZO8YGEAANqAuR7jFQG3LTatLUimMBWCc4CH2OEWUOySODdbjPMGqMhFhFEBPLMk2Zp6Lwectej/GViTyzCqUu+oDVqAQt3/qEW/H/m66qrSUYQNrgC7jfsCPySBgzlP1YxSYDXQY0kyafFsY95vf4B1QD/hozlr7iADsnXAlxDJ3c2qO8iQZH3AzNsPryNX7jPUdbtFOJcOg0B1JMt7BskGfXVlixGgPqrlhdSr4326CBQUE86VcpxqKoctXMLpKBPxeuvhmL7898LVSJbR/d46Mn6f9CB5EyiKY7E29Uzu0iXAb7pC3Q00RsXXqTDelgAKRKRSRIpEpF8pNRwrKblITsVB4/4AsO5U08KV1MUAAAAASUVORK5CYII=") center / contain no-repeat; }
+#sidebar .sidebar_brand a#header-link { display:flex; align-items:center; }
+.ma-home { display:flex; flex-direction:column; }
+.ma-home > .ma-hero { order:0; } .ma-home > .ma-primary { order:1; align-self:flex-start; margin:0 0 16px 0; }
+.ma-home > .ma-ask { order:2; } .ma-home > .ma-chips { order:3; } .ma-home > .ma-note { order:4; } .ma-home > .ma-card { order:5; } .ma-home > .ma-needs { order:6; }
+.ma-key-guide { background:var(--ma-tint); border-radius:12px; padding:16px 20px; margin-top:16px; color:var(--ma-ink); }
+.ma-key-guide-title { font-weight:600; font-size:15px; margin-bottom:8px; }
+.ma-key-guide-steps { margin:0; padding:0; list-style:none; counter-reset:ma-step; }
+.ma-key-guide-steps > li { position:relative; padding:4px 0 4px 32px; line-height:1.5; counter-increment:ma-step; }
+.ma-key-guide-steps > li::before { content:counter(ma-step); position:absolute; left:0; top:5px; width:22px; height:22px; border-radius:50%; background:var(--ma-accent); color:#FFFFFF; font-size:12px; font-weight:600; text-align:center; line-height:22px; }
+.ma-key-guide a { color:var(--ma-accent); }
+.ma-draft-status { color:var(--ma-muted); font-size:13px; margin-top:8px; }
+.formgrid table.tablesaw td:last-child { opacity:1; }
+.formgrid table.tablesaw td:has(a.grid-action-edit) { opacity:0; transition:opacity .12s; }
+.formgrid table.tablesaw tbody tr:hover td:has(a.grid-action-edit) { opacity:1; }
+@media (max-width: 900px) {
+  .dataList .pagebanner + .exportlinks { display:none !important; }
+  .formgrid table.tablesaw-stack tbody td:has(a.grid-action-edit) { opacity:1; }
+}
+@media (max-width: 600px) {
+  .ma-home > .ma-primary { position:fixed; left:16px; right:16px; bottom:16px; margin:0; width:auto; align-self:auto; z-index:1050; text-align:center; height:48px; line-height:48px; display:block; }
+  #content main { padding-bottom:88px; }
+  #adminControl { bottom:80px !important; }
+}
+/* 17b. from theme-home-1440.png / theme-home-390.png: Home's filter form leaks a lone "Show"; Joget's inline `.dataList .pagebanner + .exportlinks {display:inline-block !important}` ties on specificity and comes later, so the phone rule needs one more class */
+#dataList_needsYouList .filter_form { display:none !important; }
+@media (max-width: 900px) { div.dataList .pagebanner + .exportlinks.exportlinks { display:none !important; } }
+
+/* 18. Round 8d, CSS-only items from review/design-critique.md (5, 6, 8, 9, 13, 14) plus the AI activity status dots */
+.ma-status-success::before { background:var(--ma-ok); }
+.ma-status-failed::before, .ma-status-error::before { background:var(--ma-bad); }
+.ma-status-running::before { background:var(--ma-warn); }
+#dataList_needsYouList .pagebanner, #dataList_needsYouList .exportlinks, #dataList_needsYouList .pagelinks { display:none !important; }
+#adminControl { display:none !important; }
+.form-container .chosen-container-multi .chosen-choices:has(.search-choice) li.search-field input[type=text] { opacity:0; width:1px !important; min-height:0 !important; height:36px; padding:0; }
+.form-container .chosen-container-multi.chosen-container-active .chosen-choices li.search-field input[type=text] { opacity:1; width:120px !important; }
+@media (max-width: 600px) {
+  .ma-home > .ma-primary { position:static; width:100%; display:block; margin:0 0 16px 0; align-self:auto; height:48px; line-height:48px; }
+  #content main { padding-bottom:0; }
+  body:not(.sidebar-toggled) #category-container > li > a.menu-link { padding:0 9px; font-size:13px; }
+  .dataList .filters .filter-cell { flex:1 1 100%; }
+}
+
+/* 19. Round 8e: phone bottom bar, empty Attendees picker, draft note */
+.ma-newmeeting-bottom { display:none; }
+/* add mode: the button is hidden and only the note shows, so the row reads as a left caption above the notes, not a right-corner label */
+.ma-draft-note { color:var(--ma-muted); font-size:13px; margin:0; display:block; text-align:left; }
+.ma-draft-status { margin-left:12px; }
+.form-container .chosen-container-multi .chosen-choices { min-height:44px; padding:2px 6px; }
+.form-container .chosen-container-multi .chosen-choices:not(:has(.search-choice)) li.search-field { width:100%; }
+.form-container .chosen-container-multi .chosen-choices:not(:has(.search-choice)) li.search-field input[type=text] { width:100% !important; opacity:1; padding:0 8px; color:var(--ma-ink); }
+.form-container .chosen-container-multi .chosen-choices li.search-field input[type=text]::placeholder { color:var(--ma-muted); opacity:1; }
+@media (max-width: 600px) {
+  .ma-home > .ma-primary { display:none; }
+  .ma-newmeeting-bottom { display:block; position:fixed; left:16px; right:16px; bottom:16px; z-index:1050; background:var(--ma-accent); color:#FFFFFF !important; text-align:center; height:48px; line-height:48px; border-radius:8px; font-weight:600; text-decoration:none; }
+  #content main { padding-bottom:88px; }
+}
+/* 19b. from theme-meeting-add-1440.png: the closed .chosen-drop kept my border and left:0 (Chosen parks it at left:-9999px), so it drew a hairline under the empty picker; the empty picker itself needs the grey field look */
+.form-container .chosen-container:not(.chosen-with-drop) .chosen-drop { left:-9999px; border:0 !important; box-shadow:none; }
+.form-container .chosen-container-multi .chosen-choices { background:var(--ma-surface) !important; border:1px solid var(--ma-accent) !important; border-radius:8px; padding:2px 8px !important; }
+.form-container .chosen-container-multi .chosen-choices:not(:has(.search-choice)) li.search-field input[type=text] { min-height:40px !important; }
+/* 20. Round 8f: columns and cells were already right (probe: 100% cell = 1072, 50% cell = 526); the fields inside stopped short (select and datepicker 402px, textarea and file drop 820px) from Joget's own element widths and max-widths. Id-level specificity so the rule wins over the stock ones. Save row: the buttons column carried the 10px gutter padding. */
+#content .form-container .form-cell select, #content .form-container .form-cell textarea, #content .form-container .form-cell .datepicker-wrapper, #content .form-container .form-cell .datepicker-wrapper input, #content .form-container .form-cell .form-fileupload, #content .form-container .form-cell .chosen-container, #content .form-container .form-cell input[type=text] { width:100% !important; max-width:none !important; min-width:0 !important; }
+#section-actions .section-content { padding-left:0; padding-right:0; }
+#section-actions .form-column { padding:0 !important; }
+/* 21. Round 8g: the hero/bottom swap applies under 900 (was 600) */
+@media (max-width: 899px) {
+  .ma-home > .ma-primary { display:none; }
+  .ma-newmeeting-bottom { display:block; position:fixed; left:16px; right:16px; bottom:16px; z-index:1050; background:var(--ma-accent); color:#FFFFFF !important; text-align:center; height:48px; line-height:48px; border-radius:8px; font-weight:600; text-decoration:none; }
+  #content main { padding-bottom:88px; }
+}
+/* 22. Round 8h: stock gravatar off in the top bar; a 32px initials circle (tint, dark text) rendered by the theme JS from .profile-name in the same dropdown; the toggle anchor and dropdown stay stock */
+header.navbar li.user-link > a.dropdown-toggle > img.gravatar { display:none !important; }
+header.navbar li.user-link > a.dropdown-toggle { display:flex; align-items:center; padding:0 10px; }
+.ma-avatar { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:var(--ma-tint); color:var(--ma-dark); font-size:13px; font-weight:600; letter-spacing:.02em; }
+/* 23. Round 8i: the theme JS re-parents .ma-newmeeting-bottom to body so fixed is always viewport-relative (measured fine on demo; the showcase copy carried an older theme) */
+body > .ma-newmeeting-bottom { margin:0; }

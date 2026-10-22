@@ -1,0 +1,4 @@
+/* Hide the default Joget page heading; does not hide Form Section headings. */
+h4.page-heading {
+  display: none !important;
+}

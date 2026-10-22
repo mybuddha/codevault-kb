@@ -1,0 +1,463 @@
+# CSS Selector Lookup
+
+Search for exact selectors, classes, IDs and terms such as `#sidebar`, `.ecs-tile`, `.slider-container`, `.ma-avatar`, or `h4.page-heading`.
+
+These are *selectors found in the original CSS*; listing them does not guarantee they work without the required HTML or Joget components.
+
+## calmViolet
+
+**292 unique selectors** — [Open original stylesheet](../code/css/calmviolet.css)
+
+- `#adminBar`
+- `#adminControl`
+- `#adminControl:hover`
+- `#content .form-container .form-cell .chosen-container`
+- `#content .form-container .form-cell .datepicker-wrapper`
+- `#content .form-container .form-cell .datepicker-wrapper input`
+- `#content .form-container .form-cell .form-fileupload`
+- `#content .form-container .form-cell input[type=text]`
+- `#content .form-container .form-cell select`
+- `#content .form-container .form-cell textarea`
+- `#content main`
+- `#content main .btn-secondary`
+- `#content main .btn-secondary:hover`
+- `#content main .btn.grid-action-add`
+- `#content main .btn.grid-action-add:hover`
+- `#content main .btn:not(.btn-secondary):not(.btn-light):not(.grid-action-add)`
+- `#content main .btn:not(.btn-secondary):not(.grid-action-add):hover`
+- `#content main > nav`
+- `#content main button.form-button.btn-secondary`
+- `#content main input[type=submit].form-button:hover`
+- `#content main input[type=submit].form-button:not(.btn-secondary)`
+- `#content.page_content`
+- `#dataList_needsYouList .exportlinks`
+- `#dataList_needsYouList .filter_form`
+- `#dataList_needsYouList .pagebanner`
+- `#dataList_needsYouList .pagelinks`
+- `#s_actions .form-cell.full_width_field`
+- `#s_actions .full_width_field > div > label.label`
+- `#s_notes .form-cell textarea#notes`
+- `#s_notes .form-cell.customHtml.draft_btn`
+- `#s_notes .form-cell.customHtml.draft_btn .form-cell-value`
+- `#s_notes .section-content > .form-column`
+- `#section-actions`
+- `#section-actions .form-cell`
+- `#section-actions .form-cell > button#cancel`
+- `#section-actions .form-cell > input[type=submit].form-button`
+- `#section-actions .form-cell:first-child`
+- `#section-actions .form-column`
+- `#section-actions .form-column-horizontal`
+- `#section-actions .section-content`
+- `#sidebar #category-container > li > a.menu-link`
+- `#sidebar #category-container > li > a.menu-link > span`
+- `#sidebar #category-container > li > a.menu-link i`
+- `#sidebar #category-container > li > a.menu-link i::before`
+- `#sidebar #category-container > li.active > a.menu-link`
+- `#sidebar #category-container > li:not(.active) > a.menu-link:hover`
+- `#sidebar #category-container > li:nth-child(1) > a i`
+- `#sidebar #category-container > li:nth-child(2) > a i`
+- `#sidebar #category-container > li:nth-child(3) > a i`
+- `#sidebar #category-container > li:nth-child(4) > a i`
+- `#sidebar #category-container > li:nth-child(5) > a i`
+- `#sidebar .brand-text`
+- `#sidebar .nav > li > a > span > i:first-child`
+- `#sidebar .nav > li > a > span:not(.badge)`
+- `#sidebar .sidebar_brand a#header-link`
+- `#sidebar .sidebar_brand a#header-link::before`
+- `#sidebar-trigger`
+- `#welcomeMessage`
+- `.badge`
+- `.breadcrumb`
+- `.btn`
+- `.btn-primary`
+- `.CRUD_Menu > a.print-button`
+- `.dataList`
+- `.dataList .actions.top`
+- `.dataList .exportlinks`
+- `.dataList .filter_form a.mobile_search_trigger`
+- `.dataList .filters`
+- `.dataList .filters .dateRangeSeparator`
+- `.dataList .filters .filter-cell`
+- `.dataList .filters .filter-cell > div`
+- `.dataList .filters .filter-cell > select`
+- `.dataList .filters .filter-cell input`
+- `.dataList .filters .filter-cell:has(> select[id$="-ps"])`
+- `.dataList .filters .mobile_label`
+- `.dataList .filters input[type=submit]`
+- `.dataList .filters input[type=text]`
+- `.dataList .filters select`
+- `.dataList .filters select:not(.emptyValue)`
+- `.dataList .pagebanner`
+- `.dataList .pagebanner + .exportlinks`
+- `.dataList .pagelinks [class*="-disabled"]`
+- `.dataList .pagelinks a`
+- `.dataList .pagelinks span.pc`
+- `.dataList .pagelinks strong`
+- `.dataList .pg-navigator`
+- `.dataList table`
+- `.dataList table tbody td`
+- `.dataList table tbody tr`
+- `.dataList table tbody tr:hover td`
+- `.dataList table tbody tr:last-child td`
+- `.dataList table thead th`
+- `.dataList table thead th a`
+- `.dataList table.cardLayout`
+- `.dataList table.cardLayout .column_wrapper`
+- `.dataList table.cardLayout > tbody`
+- `.dataList table.cardLayout > tbody > tr`
+- `.dataList table.cardLayout > thead`
+- `.dataList table.cardLayout td`
+- `.dataList table.cardLayout td .cell-value`
+- `.dataList table.cardLayout td .column_status`
+- `.dataList table.cardLayout td .ma-cell-title`
+- `.dataList table.cardLayout td label.cell-label`
+- `.dataList table.cardLayout td.row_action`
+- `.dataList table.cardLayout td:has(> .column-hidden)`
+- `.dataList table.xrounded_shadowed`
+- `.dataList td.body_column_0 a`
+- `.dataList td.body_column_0 a:hover .ma-cell-title`
+- `.dataList td.row_action`
+- `.dataList th.row_action`
+- `.dataList.size_sm > form > .table-wrapper > table.responsivetable > thead`
+- `.draft_card .form-cell-value`
+- `.filter_form:not(.popup) .filters`
+- `.form-cell .ma-hint`
+- `.form-cell.customHtml.grid_mark`
+- `.form-cell.customHtml.h_attendees`
+- `.form-cell.customHtml.row_ai_summary`
+- `.form-cell.customHtml.row_attendees`
+- `.form-cell.customHtml[class*=" h_"]`
+- `.form-cell.customHtml[class*=" h_"] .ma-hint`
+- `.form-cell.row_ai_summary + .form-cell`
+- `.form-cell.row_ai_summary + .form-cell > label.label`
+- `.form-cell.row_ai_summary + .form-cell > textarea#ai_summary`
+- `.form-cell.row_attendees + .form-cell`
+- `.form-cell.row_attendees + .form-cell > .chosen-container`
+- `.form-cell.row_attendees + .form-cell > label.label`
+- `.form-container`
+- `.form-container .chosen-choices:focus-within`
+- `.form-container .chosen-container .chosen-drop`
+- `.form-container .chosen-container .chosen-results`
+- `.form-container .chosen-container .chosen-results li`
+- `.form-container .chosen-container .chosen-results li.active-result:hover`
+- `.form-container .chosen-container .chosen-results li.highlighted`
+- `.form-container .chosen-container .chosen-results li.no-results`
+- `.form-container .chosen-container .chosen-results li.result-selected`
+- `.form-container .chosen-container .chosen-results li.result-selected::after`
+- `.form-container .chosen-container .chosen-search input[type=text]`
+- `.form-container .chosen-container-active .chosen-choices`
+- `.form-container .chosen-container-active .chosen-single`
+- `.form-container .chosen-container-multi .chosen-choices`
+- `.form-container .chosen-container-multi .chosen-choices li.search-choice`
+- `.form-container .chosen-container-multi .chosen-choices li.search-choice .search-choice-close`
+- `.form-container .chosen-container-multi .chosen-choices li.search-field input[type=text]`
+- `.form-container .chosen-container-multi .chosen-choices li.search-field input[type=text]::placeholder`
+- `.form-container .chosen-container-multi .chosen-choices:has(.search-choice) li.search-field input[type=text]`
+- `.form-container .chosen-container-multi .chosen-choices:not(:has(.search-choice)) li.search-field`
+- `.form-container .chosen-container-multi .chosen-choices:not(:has(.search-choice)) li.search-field input[type=text]`
+- `.form-container .chosen-container-multi.chosen-container-active .chosen-choices li.search-field input[type=text]`
+- `.form-container .chosen-container-single .chosen-single`
+- `.form-container .chosen-container-single .chosen-single div b`
+- `.form-container .chosen-container:not(.chosen-with-drop) .chosen-drop`
+- `.form-container .datepicker-wrapper a.close-icon`
+- `.form-container .form-cell`
+- `.form-container .form-cell .datepicker-wrapper`
+- `.form-container .form-cell .datepicker-wrapper input`
+- `.form-container .form-cell .form-cell-value`
+- `.form-container .form-cell .form-fileupload`
+- `.form-container .form-cell > label.label`
+- `.form-container .form-cell input:focus`
+- `.form-container .form-cell input[type=email]`
+- `.form-container .form-cell input[type=number]`
+- `.form-container .form-cell input[type=password]`
+- `.form-container .form-cell input[type=text]`
+- `.form-container .form-cell select`
+- `.form-container .form-cell select:focus`
+- `.form-container .form-cell textarea`
+- `.form-container .form-cell textarea#ai_summary`
+- `.form-container .form-cell textarea#notes`
+- `.form-container .form-cell textarea:focus`
+- `.form-container .form-cell textarea[readonly]`
+- `.form-container .form-cell-validator`
+- `.form-container .form-column`
+- `.form-container .form-column:not([style*="%"])`
+- `.form-container .form-fileupload .dz-message`
+- `.form-container .form-section`
+- `.form-container .form-section-title`
+- `.form-container .form-section-title span::after`
+- `.form-container .form-section-title.section-mandatory span::after`
+- `.form-container .section-content`
+- `.formgrid .grid-action-add`
+- `.formgrid .pg-navigator`
+- `.formgrid input[type=checkbox]`
+- `.formgrid table.tablesaw`
+- `.formgrid table.tablesaw tbody tr:hover td:has(a.grid-action-edit)`
+- `.formgrid table.tablesaw tbody tr:hover td:last-child`
+- `.formgrid table.tablesaw td`
+- `.formgrid table.tablesaw td:has(a.grid-action-edit)`
+- `.formgrid table.tablesaw td:last-child`
+- `.formgrid table.tablesaw td:last-child a`
+- `.formgrid table.tablesaw td:nth-child(1)`
+- `.formgrid table.tablesaw td:nth-child(2)`
+- `.formgrid table.tablesaw th`
+- `.formgrid table.tablesaw th.grid-action-header`
+- `.formgrid table.tablesaw th:nth-child(1)`
+- `.formgrid table.tablesaw th:nth-child(2)`
+- `.formgrid table.tablesaw-stack tbody td`
+- `.formgrid table.tablesaw-stack tbody td b.tablesaw-cell-label`
+- `.formgrid table.tablesaw-stack tbody td:has(a.grid-action-edit)`
+- `.formgrid table.tablesaw-stack tbody td:last-child`
+- `.formgrid table.tablesaw-stack tbody tr`
+- `.formgrid table.tablesaw-stack thead`
+- `.label-info`
+- `.label-success`
+- `.ma-avatar`
+- `.ma-cell-sub`
+- `.ma-cell-title`
+- `.ma-draft-add`
+- `.ma-draft-add:hover`
+- `.ma-draft-btn`
+- `.ma-draft-btn-row`
+- `.ma-draft-btn:hover`
+- `.ma-draft-caption`
+- `.ma-draft-card`
+- `.ma-draft-copy`
+- `.ma-draft-count`
+- `.ma-draft-count-label`
+- `.ma-draft-foot`
+- `.ma-draft-head`
+- `.ma-draft-meta`
+- `.ma-draft-note`
+- `.ma-draft-status`
+- `.ma-draft-table`
+- `.ma-draft-table input[type=checkbox]`
+- `.ma-draft-table td`
+- `.ma-draft-table td:first-child`
+- `.ma-draft-table th`
+- `.ma-draft-table th:first-child`
+- `.ma-draft-table tr.ma-draft-added td`
+- `.ma-draft-title`
+- `.ma-ghost`
+- `.ma-ghost:hover`
+- `.ma-hero`
+- `.ma-hero .ma-primary`
+- `.ma-home`
+- `.ma-home > .ma-ask`
+- `.ma-home > .ma-card`
+- `.ma-home > .ma-chips`
+- `.ma-home > .ma-hero`
+- `.ma-home > .ma-needs`
+- `.ma-home > .ma-note`
+- `.ma-home > .ma-primary`
+- `.ma-key-guide`
+- `.ma-key-guide a`
+- `.ma-key-guide-steps`
+- `.ma-key-guide-steps > li`
+- `.ma-key-guide-steps > li::before`
+- `.ma-key-guide-title`
+- `.ma-newmeeting-bottom`
+- `.ma-primary`
+- `.ma-status`
+- `.ma-status-done::before`
+- `.ma-status-due_soon::before`
+- `.ma-status-error::before`
+- `.ma-status-failed::before`
+- `.ma-status-open::before`
+- `.ma-status-overdue::before`
+- `.ma-status-running::before`
+- `.ma-status-success::before`
+- `.ma-status::before`
+- `.text-info`
+- `.text-success`
+- `.tile-row`
+- `.tile-row .ma-tile`
+- `.tile-row .ma-tile:hover strong`
+- `:root`
+- `a`
+- `a:not(:hover)`
+- `body`
+- `body > .ma-newmeeting-bottom`
+- `body:not(.sidebar-toggled) #category-container`
+- `body:not(.sidebar-toggled) #category-container > li`
+- `body:not(.sidebar-toggled) #category-container > li > a.menu-link`
+- `body:not(.sidebar-toggled) #category-container > li.active > a.menu-link`
+- `body:not(.sidebar-toggled) #navigation`
+- `body:not(.sidebar-toggled) #navigation .mCSB_container`
+- `body:not(.sidebar-toggled) #navigation .mCustomScrollBox`
+- `body:not(.sidebar-toggled) #sidebar`
+- `body:not(.sidebar-toggled) #sidebar #category-container`
+- `body:not(.sidebar-toggled) #sidebar #category-container > li > a.menu-link i`
+- `body:not(.sidebar-toggled) #sidebar .mCSB_scrollTools`
+- `body:not(.sidebar-toggled) #sidebar .sidebar_brand`
+- `button`
+- `div.dataList .pagebanner + .exportlinks.exportlinks`
+- `h4.page-heading`
+- `header.navbar`
+- `header.navbar .header-nav a.btn`
+- `header.navbar li.user-link > a.dropdown-toggle`
+- `header.navbar li.user-link > a.dropdown-toggle > img.gravatar`
+- `input`
+- `li.inbox-notification`
+- `select`
+- `textarea`
+
+## ECharts Studio
+
+**77 unique selectors** — [Open original stylesheet](../code/css/echarts-studio.css)
+
+- `#sidebar .brand-tooltip`
+- `#sidebar .sidebar_brand img.logo`
+- `.ecs-card`
+- `.ecs-card h3`
+- `.ecs-card li`
+- `.ecs-card p`
+- `.ecs-card p:last-child`
+- `.ecs-card ul`
+- `.ecs-card-head h3`
+- `.ecs-card-head p`
+- `.ecs-cta`
+- `.ecs-cta:hover`
+- `.ecs-details`
+- `.ecs-details p`
+- `.ecs-details summary`
+- `.ecs-dot`
+- `.ecs-fact`
+- `.ecs-footer-logo`
+- `.ecs-form-sub`
+- `.ecs-form-title`
+- `.ecs-grid`
+- `.ecs-grid > .ecs-card`
+- `.ecs-grid-3`
+- `.ecs-grid-3 > .ecs-card`
+- `.ecs-grid-4`
+- `.ecs-grid-4 > .ecs-card`
+- `.ecs-group-head`
+- `.ecs-group-head h2`
+- `.ecs-group-head p`
+- `.ecs-hero`
+- `.ecs-hero h1`
+- `.ecs-hero p`
+- `.ecs-lead`
+- `.ecs-page`
+- `.ecs-page h1`
+- `.ecs-quiet`
+- `.ecs-quiet h3`
+- `.ecs-quiet p`
+- `.ecs-quiet-line`
+- `.ecs-row`
+- `.ecs-row > .row`
+- `.ecs-row > .row > .col`
+- `.ecs-row > .row > .col > *`
+- `.ecs-row > .row > .col.ecs-card`
+- `.ecs-row > .row > .col.ecs-card > *`
+- `.ecs-row > .row > .col.ecs-card:only-child`
+- `.ecs-shot`
+- `.ecs-status-pill`
+- `.ecs-step-link`
+- `.ecs-step-link span`
+- `.ecs-step-link strong`
+- `.ecs-step-link:hover`
+- `.ecs-step-no`
+- `.ecs-steps`
+- `.ecs-steps li`
+- `.ecs-steps li span`
+- `.ecs-steps li strong`
+- `.ecs-steps li::before`
+- `.ecs-tile`
+- `.ecs-tile-label`
+- `.ecs-tile-sub`
+- `.ecs-tile-value`
+- `.ecs-tile:hover`
+- `.ecs-wide`
+- `body#about h4.page-heading`
+- `body#dashboard h4.page-heading`
+- `body#guide h4.page-heading`
+- `body#pasted_example h4.page-heading`
+- `body#projects .dataList table tbody tr.empty td`
+- `body#projects .dataList table tbody tr.empty td::after`
+- `form#chart_project .form-section-title.section-mandatory span:after`
+- `form#chart_project label[for="chartType"]`
+- `form#chart_project label[for="question"]`
+- `form#chart_project.label-top label.label`
+- `header.navbar #header-name img.logo`
+- `header.navbar .brand-tooltip`
+- `main:has(.ecs-form-title) h4.page-heading`
+
+## Dark Green Route Panel
+
+**68 unique selectors** — [Open original stylesheet](../code/css/dark-green-route-panel.css)
+
+- `#dataList_routePanelStops .column_header`
+- `#dataList_routePanelStops .dataList_action`
+- `#dataList_routePanelStops .exportlinks`
+- `#dataList_routePanelStops .pagebanner`
+- `#dataList_routePanelStops .pagelinks`
+- `#dataList_routePanelStops .table-wrapper`
+- `#dataList_routePanelStops thead`
+- `#sidebar .category > a i`
+- `#sidebar .category > a span`
+- `#sidebar .logo img`
+- `#sidebar .menu-container`
+- `#sidebar .menu-container li a i`
+- `#sidebar .menu-container li a span`
+- `#sidebar .menu-container li a:active i`
+- `#sidebar .menu-container li a:active span`
+- `#sidebar .menu-container li a:focus i`
+- `#sidebar .menu-container li a:focus span`
+- `#sidebar .menu-container li a:hover i`
+- `#sidebar .menu-container li a:hover span`
+- `#sidebar .menu-container li a:link i`
+- `#sidebar .menu-container li a:link span`
+- `#sidebar .menu-container li a:visited i`
+- `#sidebar .menu-container li a:visited span`
+- `#sidebar .menu-container li.active > a`
+- `#sidebar .menu-container li.active > a i`
+- `#sidebar .menu-container li.active > a span`
+- `#sidebar .menu-container li.current > a`
+- `#sidebar .menu-container li.current > a i`
+- `#sidebar .menu-container li.current > a span`
+- `#sidebar .sidebar_brand .brand-text`
+- `#sidebar .sidebar_brand a`
+- `#sidebar .sidebar_brand img`
+- `#sidebar li.category.active > a.menu-link i`
+- `#sidebar li.category.active > a.menu-link span`
+- `#sidebar li.category.current-category > a.menu-link i`
+- `#sidebar li.category.current-category > a.menu-link span`
+- `.dataList td a.noAjax`
+- `.dataList td a.noAjax:after`
+- `.dataList td a.noAjax:hover`
+- `.dataList td.editCrudButton`
+- `.dataList th.rowaction_header`
+- `.form-button`
+- `.form-cell .chosen-container`
+- `.form-cell .grid-container`
+- `.form-cell .table-wrapper`
+- `.form-cell input[type=date]`
+- `.form-cell input[type=email]`
+- `.form-cell input[type=number]`
+- `.form-cell input[type=text]`
+- `.form-cell select`
+- `.form-cell textarea`
+- `.form-container button[type=submit]`
+- `.form-container input[type=submit]`
+- `.slider-container`
+- `.slider-container .dataList .pagelinks`
+- `.slider-container .exportlinks`
+- `.slider-container .pagebanner`
+- `.slider-container .table-wrapper`
+- `.slider-container.open`
+- `body:has(#slider.slider-container.open) #main`
+- `body:has(#slider.slider-container.open) #page`
+- `table.cardLayout .cell-label`
+- `table.cardLayout .column_wrapper`
+- `table.cardLayout .column_wrapper > td:nth-child(2)`
+- `table.cardLayout td:has(> .cell-value.column-hidden)`
+- `table.cardLayout thead`
+- `table.responsivetable.cardLayout > thead`
+- `table.responsivetable.cardLayout thead`
+
+## Hide Page Heading
+
+**1 unique selectors** — [Open original stylesheet](../code/css/hide-joget-page-heading.css)
+
+- `h4.page-heading`
