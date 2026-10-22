@@ -7,6 +7,12 @@
 - **Applicability:** Any page using the given theme with a matching `h4.page-heading` element.
 - **Test status:** Applied in the user's GRC theme; not independently retested here.
 
+## Before screenshot — default heading visible
+
+![Joget DX9 Manage form1 page, with the default page heading circled in red](../images/joget-page-heading-before.png)
+
+*Before applying the CSS:* The heading **Manage form1** is displayed above the Data List. The red annotation points to the heading that `h4.page-heading { display: none !important; }` hides. The breadcrumb **Home / Manage form1** is a separate element and is not hidden by this rule.
+
 ## Code
 
 ```css
