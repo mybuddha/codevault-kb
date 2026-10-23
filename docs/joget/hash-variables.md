@@ -152,7 +152,55 @@ The Marketplace description includes a **"datelist"** spelling in one note; the 
 
 For user-provided data inside scripts or queries, consult Joget's escape keywords (for example `?javascript` or `?sql`) and apply the correct escaping or parameterisation for the context.
 
-## 9. Reference documents
+## 9. Can a Hash Variable display the full interactive List with all options?
+
+**No documented Datalist Hash Variable renders the complete List Menu or CRUD Menu experience.** The `#datalist.html.myList#` Hash Variable returns HTML for a List. Do not expect all the search boxes, filters, sorting, pagination, export, New/Edit/Delete buttons and page navigation of a real Joget UI Menu.
+
+| What you need | Recommended method |
+|---|---|
+| Simple table of records inside Custom HTML or an email | `#datalist.html.myList#` |
+| Searchable, sortable, filterable List with pagination and exports | **UI Builder → List Menu** |
+| List with **New / Edit / Delete** record handling | **UI Builder → CRUD Menu**, configured with the correct form, List and actions |
+| Full menu display within an existing Form or another page | Embed the **List Menu / CRUD Menu URL in an iframe** |
+
+### Example: embed a real List or CRUD Menu in a Form
+
+1. Create and test a List in **List Builder**.
+2. In **UI Builder**, add a **List Menu** (for viewing/filtering/exporting) or **CRUD Menu** (for create/edit/delete).
+3. Open that UI menu normally and copy its real address.
+4. Open the Form where the List should appear. Add a **Custom HTML** element.
+5. Paste the following, replacing the example `src` path with the real menu URL:
+
+```html
+<iframe
+  src="/jw/web/userview/grc/v/_/risk_register?embed=true"
+  width="100%"
+  height="600"
+  style="border:0"
+  title="Risk Register">
+</iframe>
+```
+
+**Important:** `grc`, `v`, and `risk_register` are *examples* for the App ID, UI ID and **UI Menu ID**. For the iframe you need the **UI Menu ID**, whereas the Hash Variable uses the **List ID**. They may be different.
+
+Joget's official tutorial uses `?embed=true` when embedding a List/CRUD interface in an iframe, so the parent UI shell is not repeated.
+
+### Limitations and checks
+
+- The iframe displays a separate UI page; it is **not** a new kind of Hash Variable.
+- Menu links, Edit screens, delete actions, popups and form redirects may navigate **inside the iframe** or elsewhere, depending on configuration; test each required action.
+- Fixed iframe heights can cause inner scroll bars. Adjust the height or use a documented, tested resizing solution.
+- The user still needs actual Joget access permissions to the embedded menu and its records.
+- The official iframe and CRUD-in-Form examples are primarily documented for **DX8**; verify behaviour in the exact **DX9** version used locally.
+
+**Official references:**
+
+- [Joget List Menu](https://kb.on.joget.cloud/jw/web/userview/jdocs/docs/DX8/list-menu)
+- [Joget Generate CRUD](https://kb.on.joget.cloud/jw/web/userview/jdocs/docs/DX8/generate-crud)
+- [Joget — Expand Nested Datalist in an iFrame](https://kb.on.joget.cloud/jw/web/userview/jdocs/docs/DX8/expand-nested-datalist-in-an-iframe)
+- [Joget — Embed CRUD List Menu Into Form](https://confluence.joget.org/community/display/DX8/Embed+CRUD+List+Menu+Into+Form)
+
+## 10. Reference documents
 
 - [Joget DX8 Hash Variable reference](https://confluence.joget.org/community/display/DX8/Hash+Variable) — detailed Data List variants, nesting and filtering.
 - [Joget DX7 Hash Variable reference](https://confluence.joget.org/community/display/DX7/Hash+Variable) — built-in Data List syntax and filtered counts.
