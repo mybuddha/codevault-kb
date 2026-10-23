@@ -8,6 +8,7 @@ nav:
   - Getting Started: guides/start.md
   - Joget DX9:
       - Overview: joget/index.md
+      - Hash Variables and Data Lists: joget/hash-variables.md
       - CSS Selector Lookup: joget/selector-lookup.md
       - Hide default page heading: joget/hide-page-heading.md
       - Theme JavaScript UI helpers: joget/theme-javascript.md

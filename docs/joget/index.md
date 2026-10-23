@@ -4,6 +4,7 @@ Searchable examples for **theme CSS, UI JavaScript, forms, Data Lists, navigatio
 
 | Name | Code type | Primary purpose |
 |---|---|---|
+| [Hash Variables & Data Lists](hash-variables.md) | Guide | Embed a List in a Form; filtering, counts and syntax |
 | [Hide Default Page Heading](hide-page-heading.md) | CSS | Hide `h4.page-heading` |
 | [Theme JavaScript](theme-javascript.md) | JavaScript | Avatar, attendees placeholder, moving meeting button, grid Add style cleanup |
 | [calmViolet](calmviolet.md) | CSS | Entire Joget UI design layer |

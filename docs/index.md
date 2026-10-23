@@ -6,6 +6,7 @@
 
 | I need to... | Open |
 |---|---|
+| Display a List inside a Form using Hash Variables | [Joget Hash Variables](joget/hash-variables.md) |
 | Search exact CSS selectors such as `.ecs-grid-4` | [CSS Selector Lookup](joget/selector-lookup.md) |
 | Hide the default Joget form/page heading | [Hide page heading](joget/hide-page-heading.md) |
 | Review reusable Joget UI JavaScript | [Theme JavaScript](joget/theme-javascript.md) |
